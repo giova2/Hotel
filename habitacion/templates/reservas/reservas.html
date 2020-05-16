@@ -1,0 +1,36 @@
+{% extends '../base_page.html' %} 
+{% block content %}
+{% load static%}
+{% csrf_token %}
+<script type="module" src="{% static 'habitacion/js/reserva.js' %}"></script>
+<div class="d-flex flex-column justify-content-center bg-reserva">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 mt-3 text-center">
+        <h3> Seleccione una cabaña para ver su disponibilidad</h3>
+      </div>
+      {% for habitacion in habitaciones %}
+        <div class="col-12 col-md-3 mt-2">
+          <div class="card habitacion" data-id-habitacion="{{ habitacion.id }}" style="background-color: {{ habitacion.color }};">
+            <div class="card-body">
+              <h4 class="card-title">{{ habitacion.nombre }}</h4>
+              <p class="card-text">{{ habitacion.descripcion }}</p>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div> 
+    <div class="row">
+      <div class="col-12 mt-3">
+        <div id='wrap'>
+
+          <div id='calendar' class="mb-5"></div>
+        
+          <div style='clear:both'></div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

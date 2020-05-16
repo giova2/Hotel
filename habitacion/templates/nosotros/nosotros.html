@@ -1,0 +1,24 @@
+{% extends '../base_page.html' %} 
+{% block content %}
+{% load static %}
+<div class="d-flex flex-column justify-content-center bg-nosotros">
+  <div class="container-fluid">
+    {% for contenido in contenidos%}  
+      <div class="row mt-5 mb-5 {%if forloop.counter0 == 0 %} mr-md-2 {% else %} ml-md-2 {% endif %}">
+        <div class="col-12 col-md-5 {%if forloop.counter0 == 0 %} offset-md-2 {% endif %}" style="background-image:url({{ contenido.imagen.imagen.url }}); background-size:cover;background-position:center;">
+        </div>
+        <div class="col-12 col-md-5 pl-0 pr-0">
+          <div class="jumbotron jumbotron-fluid mb-0">
+            <div class="container text-center">
+              <h3 class="display-4">{{ contenido.item.titulo }}</h3>
+              <p class="lead">Texto de inspiración</p>
+              <hr class="my-2">
+              <p>{{ contenido.item.texto }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock content %}

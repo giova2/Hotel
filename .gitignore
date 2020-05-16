@@ -1,0 +1,9 @@
+.DS_Store
+.sass-cache
+.env
+budenje/settings/dev.py
+habitacion/static/habitacion/sass/
+media/
+static/
+habitacion/static/habitacion/js/env.js
+__pycache__/
